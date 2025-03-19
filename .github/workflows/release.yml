@@ -37,10 +37,13 @@ jobs:
       with:
         name: build
 
+    - name: tree
+      run: ls -R
+
     - name: Create GitHub Release
       if: startsWith(github.ref, 'refs/tags/')
       uses: softprops/action-gh-release@v2
       with:
-        files: target/release/Its-MyPic-Proto-Convert
+        files: Its-MyPic-Proto-Convert
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
